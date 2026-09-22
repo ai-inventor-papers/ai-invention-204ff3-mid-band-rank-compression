@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "source": "mteb/stsbenchmark-sts",
+    "description": "STS-Benchmark sentence pairs with human similarity scores (0-5), score bands (low/mid/high), lexical overlap bins (low/mid/high), and a reserved validation holdout of ~120 rows.",
+    "train_rows": 1994,
+    "validation_rows": 1500,
+    "test_rows": 1379,
+    "holdout_rows": 120,
+    "total_rows": 4873,
+    "score_scale": "0-5",
+    "score_bands": "low < 2, mid 2-<4, high >= 4",
+    "overlap_bins": "low < 0.2, mid 0.2-<0.5, high >= 0.5"
+  },
+  "datasets": [
+    {
+      "dataset": "stsbenchmark",
+      "examples": [
+        {
+          "input": "{\"sentence1\": \"A woman is squeezing a lemon.\", \"sentence2\": \"A woman is squeezing juice out of a lemon.\"}",
+          "output": "4.4",
+          "metadata_row_index": 587,
+          "metadata_split": "train",
+          "metadata_score": 4.4,
+          "metadata_score_band": "high",
+          "metadata_overlap_jaccard": 0.625,
+          "metadata_overlap_bin": "high",
+          "metadata_genre": "main-captions",
+          "metadata_source_dataset": "MSRvid",
+          "metadata_year": "2012train",
+          "metadata_sid": "0135",
+          "metadata_task_type": "regression",
+          "metadata_is_holdout": false
+        },
+        {
+          "input": "{\"sentence1\": \"Warm , maybe record.\", \"sentence2\": \"Warmer , almost certainly a record.\"}",
+          "output": "4.4",
+          "metadata_row_index": 2069,
+          "metadata_split": "train",
+          "metadata_score": 4.4,
+          "metadata_score_band": "high",
+          "metadata_overlap_jaccard": 0.1429,
+          "metadata_overlap_bin": "low",
+          "metadata_genre": "main-forum",
+          "metadata_source_dataset": "deft-forum",
+          "metadata_year": "2014",
+          "metadata_sid": "0069",
+          "metadata_task_type": "regression",
+          "metadata_is_holdout": false
+        },
+        {
+          "input": "{\"sentence1\": \"Gang violence kills 16 in Venezuelan prison\", \"sentence2\": \"Sixteen killed in Venezuela prison\"}",
+          "output": "4.0",
+          "metadata_row_index": 5189,
+          "metadata_split": "train",
+          "metadata_score": 4.0,
+          "metadata_score_band": "high",
+          "metadata_overlap_jaccard": 0.2,
+          "metadata_overlap_bin": "mid",
+          "metadata_genre": "main-news",
+          "metadata_source_dataset": "headlines",
+          "metadata_year": "2015",
+          "metadata_sid": "0591",
+          "metadata_task_type": "regression",
+          "metadata_is_holdout": false
+        }
+      ]
+    }
+  ]
+}

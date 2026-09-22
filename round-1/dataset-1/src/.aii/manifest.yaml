@@ -1,0 +1,9 @@
+entries:
+  - path: temp/datasets/
+    keep: STS-Benchmark raw data (mteb/stsbenchmark-sts) — 2.2 MB source files needed for reproducibility; not reproducible inside this run as it requires HF Hub download
+  - path: .venv/
+    delete: regenerable
+    source: "uv venv .venv --python=3.12 && uv pip install loguru==0.7.3"
+  - path: logs/
+    delete: regenerable
+    source: "python data.py"
