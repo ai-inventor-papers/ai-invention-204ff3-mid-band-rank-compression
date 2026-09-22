@@ -1,0 +1,245 @@
+{
+  "metadata": {
+    "title": "STS-B Fine-Tuning: Mid-Band Rank Compression Test",
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "data_source": "/ai-inventor/aii_data/runs/run_tTU5_wy6DyGe/3_invention_loop/iter_1/gen_art/gen_art_dataset_1/full_data_out.json",
+    "train_examples": 1994,
+    "val_examples": 1381,
+    "test_examples": 1379,
+    "seeds": [
+      42,
+      123,
+      456,
+      789
+    ],
+    "batch_size": 16,
+    "max_len": 64,
+    "lr": 2e-05,
+    "epochs": 1,
+    "weight_decay": 0.01,
+    "device": "cpu",
+    "baseline_metrics": {
+      "spearman": 0.8642052847699225,
+      "pearson": 0.8686947049797904,
+      "mae": 1.8235811677399862
+    },
+    "post_tuning_metrics": {
+      "spearman": 0.8868299350723804,
+      "pearson": 0.8897682976443105,
+      "mae": 1.8567798913515126,
+      "spearman_delta": 0.02262465030245786,
+      "pearson_delta": 0.021073592664520135
+    },
+    "diagnostics": {
+      "within_band_spearman": {
+        "base": {
+          "low": 0.7536439671222916,
+          "mid": 0.4481776940160211,
+          "high": 0.5042109029332118
+        },
+        "tuned": {
+          "low": 0.7360582515588431,
+          "mid": 0.5160698502890447,
+          "high": 0.5267432428506202
+        }
+      },
+      "within_band_cosine_std": {
+        "base": {
+          "low": 0.21202069999187456,
+          "mid": 0.14336587888475036,
+          "high": 0.09501174032029173
+        },
+        "tuned": {
+          "low": 0.19887149917303026,
+          "mid": 0.15207506077910476,
+          "high": 0.10555579068026864
+        }
+      },
+      "mid_band_order_inversions": {
+        "base": 39224,
+        "tuned": 36131
+      },
+      "leave_one_slice_out_decomposition": {
+        "low": {
+          "hybrid_spearman": 0.8624679747283256,
+          "delta": -0.00173731004159694,
+          "fraction_of_total": -0.07678837101885305
+        },
+        "mid": {
+          "hybrid_spearman": 0.8802602921434487,
+          "delta": 0.016055007373526164,
+          "fraction_of_total": 0.7096245537011463
+        },
+        "high": {
+          "hybrid_spearman": 0.8899122536213994,
+          "delta": 0.02570696885147683,
+          "fraction_of_total": 1.1362371797050104
+        }
+      },
+      "isotonic_calibration": {
+        "base_pearson": 0.8686947049797904,
+        "iso_pearson": 0.8805090518935256,
+        "tuned_pearson": 0.8897682976443105,
+        "base_mae": 1.8235811677399862,
+        "iso_mae": 0.542483140830806,
+        "tuned_mae": 1.8567798913515126,
+        "iso_pearson_fraction": 0.5606232929435906,
+        "iso_mae_fraction": 38.58877352936526
+      },
+      "embedding_drift": {
+        "mean_drift": null
+      },
+      "lexical_quadrant_base": {
+        "high_overlap_high_gold": 0.5726816126233752,
+        "high_overlap_low_gold": 0.5631866292072805,
+        "low_overlap_low_gold": 0.8042894165155113,
+        "low_overlap_high_gold": 0.4733898587283765
+      },
+      "lexical_quadrant_tuned": {
+        "high_overlap_high_gold": 0.6344391612209918,
+        "high_overlap_low_gold": 0.5921165697495191,
+        "low_overlap_low_gold": 0.813031419251803,
+        "low_overlap_high_gold": 0.5080724422573343
+      }
+    },
+    "seed_variance": {
+      "seeds_run": [
+        42,
+        123,
+        456,
+        789
+      ],
+      "spearman_deltas": [
+        0.02262465030245786,
+        0.02108619401241707,
+        0.02258349134020421,
+        0.022544231741728482
+      ],
+      "mean_delta": 0.022209641849201905,
+      "std_delta": 0.0006492458887729006,
+      "per_seed_results": [
+        {
+          "seed": 42,
+          "baseline_spearman": 0.8642052847699225,
+          "tuned_spearman": 0.8868299350723804,
+          "delta": 0.02262465030245786,
+          "wall_clock_seconds": 190.3098795413971,
+          "peak_memory_mb": 1578.00390625
+        },
+        {
+          "seed": 123,
+          "baseline_spearman": 0.8642052847699225,
+          "tuned_spearman": 0.8852914787823396,
+          "delta": 0.02108619401241707,
+          "wall_clock_seconds": 190.24463629722595,
+          "peak_memory_mb": 1578.62109375
+        },
+        {
+          "seed": 456,
+          "baseline_spearman": 0.8642052847699225,
+          "tuned_spearman": 0.8867887761101267,
+          "delta": 0.02258349134020421,
+          "wall_clock_seconds": 191.19085025787354,
+          "peak_memory_mb": 1578.62109375
+        },
+        {
+          "seed": 789,
+          "baseline_spearman": 0.8642052847699225,
+          "tuned_spearman": 0.886749516511651,
+          "delta": 0.022544231741728482,
+          "wall_clock_seconds": 190.71982598304749,
+          "peak_memory_mb": 1585.02734375
+        }
+      ]
+    },
+    "resource_usage": {
+      "total_wall_clock_seconds": 762.4651920795441,
+      "peak_memory_mb": 1585.02734375,
+      "per_seed_times": [
+        190.3098795413971,
+        190.24463629722595,
+        191.19085025787354,
+        190.71982598304749
+      ]
+    },
+    "model_path": "/ai-inventor/aii_data/runs/run_tTU5_wy6DyGe/3_invention_loop/iter_2/gen_art/gen_art_experiment_1/fine_tuned_model_seed42",
+    "hypothesis_assessment": {
+      "spearman_improved": true,
+      "delta_exceeds_2x_seed_sd": true,
+      "mid_band_contribution_fraction": 0.7096245537011463,
+      "embedding_drift_below_threshold": false,
+      "iso_fraction_below_threshold": false,
+      "mid_band_compression_supported": false
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "stsbenchmark",
+      "examples": [
+        {
+          "input": "{\"sentence1\": \"A man with a hard hat is dancing.\", \"sentence2\": \"A man wearing a hard hat is dancing.\"}",
+          "output": "5.0",
+          "predict_baseline": "0.993371",
+          "predict_tuned": "0.995239",
+          "metadata_row_index": 0,
+          "metadata_split": "validation",
+          "metadata_score": 5.0,
+          "metadata_score_band": "high",
+          "metadata_overlap_jaccard": 0.75,
+          "metadata_overlap_bin": "high",
+          "metadata_genre": "main-captions",
+          "metadata_source_dataset": "MSRvid",
+          "metadata_year": "2012test",
+          "metadata_sid": "0000",
+          "metadata_task_type": "regression",
+          "metadata_is_holdout": false,
+          "metadata_baseline_cosine": 0.993371,
+          "metadata_tuned_cosine": 0.995239,
+          "metadata_gold_score": 5.0
+        },
+        {
+          "input": "{\"sentence1\": \"A young child is riding a horse.\", \"sentence2\": \"A child is riding a horse.\"}",
+          "output": "4.75",
+          "predict_baseline": "0.953963",
+          "predict_tuned": "0.97327",
+          "metadata_row_index": 1,
+          "metadata_split": "validation",
+          "metadata_score": 4.75,
+          "metadata_score_band": "high",
+          "metadata_overlap_jaccard": 0.8333,
+          "metadata_overlap_bin": "high",
+          "metadata_genre": "main-captions",
+          "metadata_source_dataset": "MSRvid",
+          "metadata_year": "2012test",
+          "metadata_sid": "0002",
+          "metadata_task_type": "regression",
+          "metadata_is_holdout": false,
+          "metadata_baseline_cosine": 0.953963,
+          "metadata_tuned_cosine": 0.97327,
+          "metadata_gold_score": 4.75
+        },
+        {
+          "input": "{\"sentence1\": \"A man is feeding a mouse to a snake.\", \"sentence2\": \"The man is feeding a mouse to the snake.\"}",
+          "output": "5.0",
+          "predict_baseline": "0.980101",
+          "predict_tuned": "0.993116",
+          "metadata_row_index": 2,
+          "metadata_split": "validation",
+          "metadata_score": 5.0,
+          "metadata_score_band": "high",
+          "metadata_overlap_jaccard": 0.875,
+          "metadata_overlap_bin": "high",
+          "metadata_genre": "main-captions",
+          "metadata_source_dataset": "MSRvid",
+          "metadata_year": "2012test",
+          "metadata_sid": "0003",
+          "metadata_task_type": "regression",
+          "metadata_is_holdout": false,
+          "metadata_baseline_cosine": 0.980101,
+          "metadata_tuned_cosine": 0.993116,
+          "metadata_gold_score": 5.0
+        }
+      ]
+    }
+  ]
+}
